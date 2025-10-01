@@ -17,6 +17,7 @@ export default function Navbar({ activeSection, onSectionChange }: NavbarProps) 
     { id: "about", label: "Tentang" },
     { id: "extracurriculars", label: "Ekstrakurikuler" },
     { id: "achievements", label: "Prestasi" },
+    { id: "documentation", label: "Dokumentasi" },
     { id: "contact", label: "Kontak" },
   ]
 

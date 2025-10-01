@@ -24,6 +24,11 @@ export default function Footer({ onNavigate }: FooterProps) {
     { name: "Kontak", section: "contact" },
   ]
 
+  const externalLinks = [
+    { name: "Website Utama", href: "https://smktibazma.sch.id" },
+    { name: "BEST Platform", href: "https://best.smktibazma.com" },
+  ]
+
   const ekstrakurikuler = [
     { name: "Robotik", section: "robotik" },
     { name: "Futsal", section: "futsal" },
@@ -31,6 +36,7 @@ export default function Footer({ onNavigate }: FooterProps) {
     { name: "Pencak Silat", section: "silat" },
     { name: "Hadroh", section: "hadroh" },
     { name: "Qori", section: "qori" },
+    { name: "Pramuka", section: "pramuka" },
   ]
 
   const socialLinks = [
@@ -108,6 +114,23 @@ export default function Footer({ onNavigate }: FooterProps) {
                   >
                     {ekskul.name}
                   </button>
+                </li>
+              ))}
+            </ul>
+
+            <h4 className="font-heading font-semibold text-lg mb-4 mt-6 text-white">Portal Lainnya</h4>
+            <ul className="space-y-3">
+              {externalLinks.map((link) => (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white hover:text-black hover:translate-x-2 transition-all duration-300 inline-flex items-center gap-1"
+                  >
+                    {link.name}
+                    <ArrowUp className="h-3 w-3 rotate-45" />
+                  </a>
                 </li>
               ))}
             </ul>

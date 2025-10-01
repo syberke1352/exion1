@@ -108,19 +108,6 @@ export default function ExtracurricularsPage({ onNavigate }: ExtracurricularsPag
       color: "from-amber-500 to-orange-500",
       icon: "🏕️",
     },
-    {
-      id: "basket",
-      name: "Basket",
-      category: "Olahraga",
-      description: "Olahraga basket yang mengasah koordinasi, kerjasama tim, dan strategi permainan.",
-      image: "https://images.pexels.com/photos/1752757/pexels-photo-1752757.jpeg",
-      members: 28,
-      schedule: "Senin & Kamis, 16:00-18:00",
-      location: "Lapangan Basket",
-      achievements: ["Juara 2 Liga Basket Pelajar", "Best Team Spirit Award"],
-      color: "from-orange-500 to-red-500",
-      icon: "🏀",
-    },
   ]
 
   const categories = ["Semua", "Teknologi", "Olahraga", "Seni", "Bela Diri", "Seni Islami", "Tilawah", "Kepanduan"]

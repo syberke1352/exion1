@@ -398,7 +398,7 @@
                   >
                     <Card>
                       <div className="aspect-video bg-muted flex items-center justify-center overflow-hidden">
-                        {doc.image && doc.image.startsWith("data:") ? (
+                        {doc.image ? (
                           <img
                             src={doc.image || "/placeholder.svg"}
                             alt={doc.title}

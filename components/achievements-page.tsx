@@ -132,34 +132,42 @@ export default function AchievementsPage() {
             {achievements.map((achievement) => (
               <Card
                 key={achievement.id}
-                className="overflow-hidden hover:shadow-lg transition-shadow h-full flex flex-col"
+                className="group overflow-hidden hover:shadow-2xl transition-all duration-300 h-full flex flex-col cursor-pointer hover:-translate-y-1"
               >
-                <div className="relative">
+                <div className="relative overflow-hidden">
                   <img
                     src={achievement.image || achievement.photoUrl || "/placeholder.svg?height=200&width=300"}
                     alt={achievement.title}
-                    className="w-full h-48 object-cover"
+                    className="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-500"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                   <div
                     className={`absolute top-4 left-4 bg-gradient-to-r ${getEkskulColor(
                       achievement.ekskulType,
-                    )} px-3 py-1 rounded-full`}
+                    )} px-4 py-1.5 rounded-full shadow-lg`}
                   >
                     <span className="text-white font-semibold text-sm capitalize">{achievement.ekskulType}</span>
                   </div>
                   <div className="absolute top-4 right-4">
                     <Badge
-                      className={levelColors[achievement.level as keyof typeof levelColors] || levelColors.Sekolah}
+                      className={`${levelColors[achievement.level as keyof typeof levelColors] || levelColors.Sekolah} shadow-lg`}
                     >
                       {achievement.level}
                     </Badge>
                   </div>
+                  <div className="absolute bottom-4 right-4">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center shadow-lg">
+                      <Trophy className="w-6 h-6 text-white" />
+                    </div>
+                  </div>
                 </div>
 
                 <CardContent className="p-6 flex flex-col flex-grow">
-                  <div className="flex items-center justify-between mb-3">
-                    <h3 className="font-semibold text-lg line-clamp-2 flex-grow">{achievement.title}</h3>
-                    <Badge variant="outline" className="ml-2 flex-shrink-0">
+                  <div className="flex items-start justify-between mb-3 gap-3">
+                    <h3 className="font-bold text-lg leading-tight flex-grow group-hover:text-primary transition-colors">
+                      {achievement.title}
+                    </h3>
+                    <Badge variant="secondary" className="flex-shrink-0">
                       {(() => {
                         try {
                           const date = new Date(achievement.date)
@@ -170,10 +178,26 @@ export default function AchievementsPage() {
                       })()}
                     </Badge>
                   </div>
-                  <p className="text-muted-foreground text-sm mb-4 line-clamp-3 flex-grow">{achievement.description}</p>
-                  <div className="flex items-center justify-between mt-auto">
-                    <span className="text-sm font-medium text-blue-600 capitalize">{achievement.ekskulType}</span>
-                    <Trophy className="h-5 w-5 text-yellow-600" />
+                  <p className="text-muted-foreground text-sm mb-4 line-clamp-3 flex-grow leading-relaxed">
+                    {achievement.description}
+                  </p>
+                  <div className="flex items-center justify-between pt-4 mt-auto border-t border-border">
+                    <div className="flex items-center gap-2">
+                      <Calendar className="w-4 h-4 text-primary" />
+                      <span className="text-sm text-muted-foreground">
+                        {(() => {
+                          try {
+                            const date = new Date(achievement.date)
+                            return date.toLocaleDateString("id-ID", { month: "short", year: "numeric" })
+                          } catch {
+                            return "N/A"
+                          }
+                        })()}
+                      </span>
+                    </div>
+                    <Badge variant="outline" className="capitalize">
+                      {achievement.ekskulType}
+                    </Badge>
                   </div>
                 </CardContent>
               </Card>
